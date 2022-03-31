@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+<style>
+.tex{
+	background-color: black;
+  	color;
+}
+.ul{
+	text-decoration: underline;
+	text-alignment: center;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#ffe6e6;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color:#bfbfbf ;
+  border-style: solid;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left middle middle middle middle right' 
+    'footer footer footer footer footer footer';
+  /*grid-column-gap: 10px;*/
+} 
+
+.left,
+.middle,
+.right {
+  padding: 20px;
+  height: 550px;
+  border-style: solid
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left left left left left' 
+      'middle middle middle middle middle middle' 
+      'right right right right right right' 
+      'footer footer footer footer footer footer';
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="header">
+    <h1 style="text-shadow:1px 1px 0 #444">Technical Skills</h1>
+  </div>
+  
+  <div class="left" style="background-color:#ffb3b3;">
+	<h1 class="ul">Skill Set:-</h1> </br>
+	<tbody>
+          {% for x in range(rows|length): %}
+          <tr>
+            <td class="tex"><h5 text-align=center>{{rows[x][1]}}</h5></td> </br>
+          </tr>
+          {% endfor %}
+        </tbody>
+  </div>
+  <div class="middle" style="background-color:#bfbfbf;">
+	<h1 class="ul">Efficiency:-</h1> </br>
+	<tbody>
+          {% for x in range(rows|length): %}
+          <tr>
+            <td class="tex"><h5>{{rows[x][2]}}</h5></td> </br>
+          </tr>
+          {% endfor %}
+        </tbody>
+  </div>  
+  <div class="right" style="background-color:#ffb3b3;">
+	<h1 class="ul">Usage:-</h1> </br>
+	<tbody>
+          {% for x in range(rows|length): %}
+          <tr>
+            <td class="tex"><h5>{{rows[x][3]}}</h5></td> </br>
+          </tr>
+          {% endfor %}
+        </tbody>
+  </div>
+  
+</div>
+
+</body>
+
+{% endblock %}

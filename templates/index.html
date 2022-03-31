@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+<style>
+.ul{
+	text-decoration: underline;
+	text-alignment: center;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#ffe6e6;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color:#bfbfbf;
+  border-style: solid;
+  text-align: center;
+  font-size: 35px;
+}
+
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left middle middle middle middle right' 
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+} 
+
+.left,
+.middle,
+.right {
+  padding: 20px;
+  height: 550px; /* Should be removed. Only for demonstration */
+  border-style: solid
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+}
+
+/* Style the middle column */
+.middle {
+  grid-area: middle;
+}
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .grid-container  {
+    grid-template-areas: 
+      'header header header header header header' 
+      'left left left left left left' 
+      'middle middle middle middle middle middle' 
+      'right right right right right right' 
+      'footer footer footer footer footer footer';
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="header">
+    <h1 style="text-shadow:1px 1px 0 #444">My Introduction</h1>
+  </div>
+  
+  <div class="left" style="background-color:#ffb3b3;">
+	<h1 class="ul">BioData:-</h1>
+	<h6>Name:Vijaya Sai Pavan Kumar<h6>
+	<h6>CWID:50287725</h6>
+	<h6>Course:Networking-1</h6>
+	<h6>Majors:CSIS</h6>
+	
+  </div>
+  <div class="middle" style="background-color:#bfbfbf;">
+	<h1 class="ul">Introduction:-</h1>
+	<p>I am presently pursing my masters at Texas A&M University Commerce.		I completed my undergraduation in the year 2017.		All my education since schooling to the undergrad was completed in India.</p>
+	<p>I actively participate in different student organisations and sport activities during my schooling and college.		I lead my college volleyball team for 4 years. </p>
+	<p>I have keen interest towards coding and programming languages. I like to solve the problems by using the logic and take it as a challenge to find the efficient solutions. I am confident in different programming languages like C, C++, Pyton and JAVA.</p>
+  </div>  
+  <div class="right" style="background-color:#ffb3b3;">
+	<h1 class="ul">Hobbies:-</h1>
+	<p>Playing Volley Ball</p>
+	<p>Badminton my favourite sport</p>
+	<p>Photography is my passion</p>
+	<p></p>
+  </div>
+  
+</div>
+
+</body>
+
+{% endblock %}
